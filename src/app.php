@@ -57,28 +57,28 @@ $app->register(new DoctrineOrmServiceProvider, array(
         ],
     ],
 ));
-$app->register(new SecurityServiceProvider());
-    /* 'security.firewalls' => [ */
-    /*     'unauthenticated' => [ */
-    /*         'anonymous' => true, */
-    /*         'pattern' => new RequestMatcher('^/(login|register|whoami)') */
-    /*     ], */
-    /*     'user' => [ */
-    /*         'pattern' => new RequestMatcher('^/'), */
-    /*         'form' => [ */
-    /*             'login_path' => '/login', */
-    /*             'check_path' => '/home/login_check' */
-    /*         ], */
-    /*         'logout' => [ */
-    /*             'logout_path' => '/logout', */
-    /*             'invalidate_session' => true */
-    /*         ], */
-    /*         'users' => function () use ($app) { */
-    /*             return new UserProvider($app['user.repository']); */
-    /*         } */
-    /*     ] */
-    /* ] */
-/* ]); */
+$app->register(new SecurityServiceProvider(), [
+    'security.firewalls' => [
+        'unauthenticated' => [
+            'anonymous' => true,
+            'pattern' => new RequestMatcher('^/(login|register|whoami)')
+        ],
+        'user' => [
+            'pattern' => new RequestMatcher('^/'),
+            'form' => [
+                'login_path' => '/login',
+                'check_path' => '/home/login_check'
+            ],
+            'logout' => [
+                'logout_path' => '/logout',
+                'invalidate_session' => true
+            ],
+            'users' => function () use ($app) {
+                return new UserProvider($app['user.repository']);
+            }
+        ]
+    ]
+]);
 
 
 // Register the RegisterType form as a service with the FormFactory.
