@@ -61,6 +61,9 @@ class RegisterTypeTest extends TypeTestCase
         ];
     }
 
+    /**
+     * @group unittest
+     */
     public function testSubmitValidData()
     {
         $formData = [

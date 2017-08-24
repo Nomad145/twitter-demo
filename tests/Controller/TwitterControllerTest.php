@@ -10,6 +10,9 @@ use App\Test\ApplicationTestCase;
  */
 class TwitterControllerTest extends ApplicationTestCase
 {
+    /**
+     * @group functionaltest
+     */
     public function testAuthenticatedHomePage()
     {
         $this->markTestIncomplete('This test needs fixtures.');

@@ -10,12 +10,18 @@ use App\Test\ApplicationTestCase;
  */
 class AuthControllerTest extends ApplicationTestCase
 {
+    /**
+     * @group functionaltest
+     */
     public function testUnauthenticatedHomePage()
     {
         $crawler = $this->client->request('GET', '/');
         $this->assertTrue($this->client->getResponse()->isRedirect('http://localhost/login'));
     }
 
+    /**
+     * @group functionaltest
+     */
     public function testLoginPage()
     {
         $this->client->followRedirects(true);
@@ -24,6 +30,9 @@ class AuthControllerTest extends ApplicationTestCase
         $this->assertSame('Login - Twitter Demo', $crawler->filter('title')->text());
     }
 
+    /**
+     * @group functionaltest
+     */
     public function testRegisterPage()
     {
         $this->client->followRedirects(true);

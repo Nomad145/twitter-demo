@@ -21,6 +21,9 @@ class UserProviderTest extends TestCase
         $this->repo = $this->createMock(UserRepository::class);
     }
 
+    /**
+     * @group unittest
+     */
     public function testUserFound()
     {
         $user = (new User())
@@ -36,6 +39,9 @@ class UserProviderTest extends TestCase
         $this->assertSame($user, $subject->refreshUser($user));
     }
 
+    /**
+     * @group unittest
+     */
     public function testUserNotFound()
     {
         $this->repo
