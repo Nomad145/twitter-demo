@@ -1,0 +1,35 @@
+version: '2'
+
+services:
+    php:
+        container_name: php
+        image: nomad145/php
+        build: .docker/php
+        environment:
+            XDEBUG_CONFIG: remote_host=192.168.1.67
+
+    nginx:
+      container_name: nginx
+      build: .docker/nginx
+      links:
+          - php
+      environment:
+        VIRTUAL_HOST: twitter.localhost
+      ports:
+          - "80:80"
+
+    mariadb:
+      image: mariadb:latest
+      container_name: mariadb
+      volumes:
+          - mariadb:/var/lib/mysql
+      environment:
+        MYSQL_ROOT_PASSWORD: root
+        MYSQL_USER: dbuser
+        MYSQL_PASSWORD: dbpass
+        MYSQL_DATABASE: dbname
+      ports:
+          - "3306:3306"
+
+volumes:
+    mariadb:

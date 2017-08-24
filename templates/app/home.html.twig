@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+{% form_theme form 'bootstrap_3_layout.html.twig' %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-xs-offset-2 col-xs-8 col-xs-offset-2">
+            {{ form(form) }}
+        </div>
+    </div>
+
+    {% for tweet in tweets %}
+        {% include 'app/tweet.html.twig' %}
+    {% endfor %}
+{% endblock %}

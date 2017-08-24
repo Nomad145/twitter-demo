@@ -1,0 +1,8 @@
+/vendor/
+tags*
+.scratch/
+.phpcd/
+.vimrc
+coverage.xml
+.ideas/
+var
