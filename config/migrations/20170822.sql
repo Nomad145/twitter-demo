@@ -5,6 +5,7 @@ CREATE TABLE user (
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
     email VARCHAR(255) NOT NULL,
+    INDEX handle (handle),
     CONSTRAINT user_pk PRIMARY KEY (id),
     UNIQUE (handle),
     UNIQUE (email)
