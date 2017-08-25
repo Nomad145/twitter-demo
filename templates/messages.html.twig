@@ -1,0 +1,7 @@
+{% for message in global.session.flashbag.get('info') %}
+    {% include 'flash.html.twig' with {'type': 'info'} %}
+{% endfor %}
+
+{% for message in global.session.flashbag.get('error') %}
+    {% include 'flash.html.twig' with {'type': 'danger'} %}
+{% endfor %}
