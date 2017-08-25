@@ -7,6 +7,10 @@ services:
         build: .docker/php
         environment:
             XDEBUG_CONFIG: remote_host=192.168.1.67
+            DB_NAME: dbname
+            DB_USER: dbuser
+            DB_PASS: dbpass
+            DB_HOST: mariadb
 
     nginx:
       container_name: nginx

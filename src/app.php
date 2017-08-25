@@ -23,6 +23,10 @@ use App\DataMapper\ObjectMapper;
 use Dflydev\Provider\DoctrineOrm\DoctrineOrmServiceProvider;
 use App\Entity\Tweet;
 use App\Entity\User;
+use Symfony\Component\Dotenv\Dotenv;
+
+// Load environment variables.
+$dotenv = new Dotenv();
 
 // Register the Application Service Providers.
 $app = new Application();
@@ -38,10 +42,10 @@ $app->register(new SessionServiceProvider());
 $app->register(new DoctrineServiceProvider(), [
     'db.options' => [
         'driver' => 'pdo_mysql',
-        'dbname' => 'dbname',
-        'host' => 'mariadb',
-        'user' => 'dbuser',
-        'password' => 'dbpass'
+        'dbname' => getenv('DB_NAME'),
+        'host' => getenv('DB_HOST'),
+        'user' => getenv('DB_USER'),
+        'password' => getenv('DB_PASS'),
     ]
 ]);
 $app->register(new DoctrineOrmServiceProvider, array(
