@@ -4,7 +4,7 @@ CREATE TABLE user (
     password VARCHAR(255) NOT NULL,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL,
+    email VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL,
     CONSTRAINT user_pk PRIMARY KEY (id),
     UNIQUE (handle),
     UNIQUE (email)
