@@ -13,11 +13,11 @@
     <body>
         <div class="container">
             {% block header %}
-                {% include('header.html.twig') %}
+                {% include 'header.html.twig' %}
             {% endblock %}
 
             {% block messages %}
-                {% include('flash.html.twig') %}
+                {% include 'messages.html.twig' %}
             {% endblock %}
 
             {% block content %}{% endblock %}
